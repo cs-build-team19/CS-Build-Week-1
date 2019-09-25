@@ -1,1 +1,1 @@
-web: gunicorn zorro-one-piece.wsgi:application --log-file -
+web: gunicorn --log-file=- zorro-one-piece.wsgi:application
