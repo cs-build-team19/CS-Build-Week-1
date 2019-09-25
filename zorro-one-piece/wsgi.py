@@ -1,5 +1,5 @@
 """
-WSGI config for adv_project project.
+WSGI config for zorro-one-piece project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -10,7 +10,9 @@ https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
+from whitenoise.django import DjangoWhiteNoise
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'adv_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'zorro-one-piece.settings')
 
 application = get_wsgi_application()
+application = DjangoWhiteNoise(application)
