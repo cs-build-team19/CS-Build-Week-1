@@ -11,6 +11,7 @@ fun_room_description = [
 ]
 
 
+
 def fun_room_titles():
     title_noun = random.choice(fun_room_title[0])
     title_adj = random.choice(fun_room_title[1])
