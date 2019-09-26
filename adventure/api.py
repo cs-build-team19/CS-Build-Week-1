@@ -65,3 +65,16 @@ def move(request):
 def say(request):
     # IMPLEMENT
     return JsonResponse({'error':"Not yet implemented"}, safe=True, status=500)
+
+
+@csrf_exempt
+@api_view(["GET"])
+def world(request):
+    island = []
+    world = Room.objects.all()
+    for room in world:
+        # island.append(room)
+        island.append({"id": room.id, "title": room.title, "desc": room.description,
+            "x": room.x, "y": room.y, "north": room.n_to, "south": room.s_to, "east": room.e_to, "west": room.w_to})
+
+    return JsonResponse({"world": island}, safe=True)
