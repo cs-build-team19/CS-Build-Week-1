@@ -84,4 +84,4 @@ def create_world(w, room_amount):
             node.save()
     return full_map
 
-print(create_world(5, 50))
+print(create_world(10, 110))
