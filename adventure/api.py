@@ -78,3 +78,15 @@ def world(request):
             "x": room.x, "y": room.y, "north": room.n_to, "south": room.s_to, "east": room.e_to, "west": room.w_to})
 
     return JsonResponse({"world": island}, safe=True)
+
+@csrf_exempt
+@api_view(["GET"])
+def players(request):
+    allPlayers = []
+    players = Player.objects.all()
+    for p in players:
+        # island.append(room)
+        allPlayers.append({"uuid": p.uuid, "user": p.user, "id": p.id,
+            "currentRoom": p.currentRoom})
+
+    return JsonResponse({"players": allPlayers}, safe=True)
